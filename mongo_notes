@@ -1,0 +1,121 @@
+Run mongo:
+1. mongod
+2. brew services start mongo
+
+Core Mongoose: 
+Create Read Update Destory
+
+Mongo
+Database            <=> Mongoose(map) <=> Mocha(test)
+Collection of users
+
+
+Project structure :
+
+1. scr: user.js(connect mongo database adn mongoose)
+2. test: create_test.js, read_test.js, update_test.js, destroy_test.js
+
+
+Time:
+
+1. Mocha starts
+2. Tell Mongoose to connect to Mongo
+.
+.wait
+.
+3. Mongoose connects to Mongoose     //Mongoose.connecton
+4. Connection Successful? Run tests  // .once('open', callback)
+   Connection Failed? Show Errors    //  .on('error',callback);
+
+Mocha:
+
+Describe
+
+it
+it
+it
+describe('Creating records', () => {
+
+  it('saves a user', () =>{
+    
+  });
+  
+});
+
+mongoose.Promise = global.Promise (using ES6 promise)
+
+callback functions:
+before((done)=>{
+	dosomething(and then do done())
+});
+
+beforeEach((done)=>{
+	dosomething(and then do done())
+});
+
+User.find(criteria): find all the users that match the given criteria. Returns an array.
+
+User.findOne(criteria): find the first user that matches the crieteria. Return a single record.
+
+When comparing id, remeber to change to string before compare.(toString()).
+
+package.json :Scripts:"test": "nodemon --exec 'mocha -R min'"
+
+update operators: docs.mongodb.com
+
+Validation of Mongodb
+
+virtual type: postcount don't save in mongoDB, only need to look at the length of posts
+dont define in the schema
+
+TestSchema.virtual('test').get(function(){
+	
+})
+
+joe.test;
+不用（）, 会自动在fly上跑的
+
+Promise.all([...]).then()
+
+User. findOne({name : 'Joe'}) . populate('blogPosts') . then()
+In my        find the first         resolve the      Execute 
+User         record with this       'blogPosts'      the
+colleaciton  criteria               relationship     query
+
+
+
+populate({
+	path:
+	populate:{
+	path:
+	model:
+	populate:{
+	...
+	}
+	}
+})
+
+Middleware: pre and post hooks;
+for example: save, run pre middleware and then after save run post…
+
+
+Supertest ~~ request
+request(app)
+      .get('/api')
+      .end((err, response) => {
+        assert(response.body.hi === 'there');
+        done();
+      });
+
+
+Mongo uses [Longitude, Latitude]
+
+
+
+
+
+
+
+
+
+
